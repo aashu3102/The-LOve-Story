@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aashu &amp; Shambhavi — Our Story</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@400;600;700&family=Josefin+Sans:wght@100;300;400&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor">&#9829;</div>
+<!-- BURST LAYER -->
+<div id="burstLayer"></div>
+<!-- AMBIENT PARTICLES -->
+<div id="ambientParticles"></div>
+
+<!-- ══════════════════════════════════════
+     CARD 1 — COVER / TITLE PAGE
+     ══════════════════════════════════════ -->
+<div class="card card-cover active" id="card-0">
+
+  <!-- SKY -->
+  <div class="cv-sky"></div>
+  <canvas id="starsCanvas" class="cv-stars-canvas"></canvas>
+
+  <!-- FULL MOON SYSTEM -->
+  <div class="cv-moon-atmo" id="moonAtmo"></div>
+  <div class="cv-cloud cv-cloud-1"></div>
+  <div class="cv-cloud cv-cloud-2"></div>
+  <div class="cv-cloud cv-cloud-3"></div>
+  <div class="cv-moon-halo" id="moonHalo"></div>
+  <div class="cv-moon" id="cvMoon"></div>
+  <div class="cv-cloud-over cv-cloud-o1"></div>
+  <div class="cv-cloud-over cv-cloud-o2"></div>
+
+  <!-- MOUNTAINS -->
+  <div class="cv-mountains"></div>
+  <div class="cv-mtn-mist"></div>
+
+  <!-- GRASS -->
+  <div class="cv-grass-layer" id="grassLayer"></div>
+
+  <!-- RIVER -->
+  <div class="cv-river-wrap">
+    <div class="cv-river-base"></div>
+    <svg id="riverSVG" preserveAspectRatio="none"></svg>
+    <div class="cv-river-reflection"></div>
+    <div class="cv-river-shimmer cv-rs1"></div>
+    <div class="cv-river-shimmer cv-rs2"></div>
+    <div class="cv-river-shimmer cv-rs3"></div>
+    <div class="cv-river-shimmer cv-rs4"></div>
+    <div class="cv-river-shimmer cv-rs5"></div>
+    <div class="cv-river-shimmer cv-rs6"></div>
+    <div class="cv-river-foam cv-rf-top"></div>
+    <div class="cv-river-foam cv-rf-mid"></div>
+  </div>
+
+  <!-- MIST -->
+  <div class="cv-mist"></div>
+
+  <!-- FIREFLIES -->
+  <div class="cv-jugnu-layer" id="jugnuLayer"></div>
+
+  <!-- FLOATING SYMBOLS -->
+  <div class="cv-love-floaters">
+    <span class="fl fl1" style="color:rgba(192,71,74,.6)">&#9829;</span>
+    <span class="fl fl2" style="color:rgba(201,168,76,.5)">&#10022;</span>
+    <span class="fl fl3" style="color:rgba(192,71,74,.5)">&#10084;</span>
+    <span class="fl fl4" style="color:rgba(201,168,76,.4)">&#9733;</span>
+    <span class="fl fl5" style="color:rgba(224,80,100,.55)">&#9829;</span>
+    <span class="fl fl6" style="color:rgba(201,168,76,.45)">&#10022;</span>
+    <span class="fl fl7" style="color:rgba(192,71,74,.4)">&#10084;</span>
+    <span class="fl fl8" style="color:rgba(245,208,128,.4)">&#9733;</span>
+    <span class="fl fl9" style="color:rgba(192,71,74,.5)">&#9829;</span>
+    <span class="fl fl10" style="color:rgba(201,168,76,.4)">&#10022;</span>
+    <span class="fl fl11" style="color:rgba(192,71,74,.45)">&#10084;</span>
+    <span class="fl fl12" style="color:rgba(201,168,76,.35)">&#9733;</span>
+  </div>
+
+  <!-- SVG gradient defs -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <linearGradient id="gDays"  x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff6080"/><stop offset="100%" stop-color="#ffb0c0"/></linearGradient>
+      <linearGradient id="gHrs"   x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#ffe080"/></linearGradient>
+      <linearGradient id="gMins"  x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a880ff"/><stop offset="100%" stop-color="#d0b8ff"/></linearGradient>
+      <linearGradient id="gSecs"  x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff3050"/><stop offset="100%" stop-color="#ff90a0"/></linearGradient>
+    </defs>
+  </svg>
+
+  <!-- MAIN GLASS CARD -->
+  <div class="cv-card">
+
+    <div class="cv-top-bar">
+      <span class="cv-bar-rose" style="color:rgba(192,71,74,.7)">&#10084;</span>
+      <div class="cv-bar-line"></div>
+      <span class="cv-bar-star">&#10022; &#10022; &#10022;</span>
+      <div class="cv-bar-line"></div>
+      <span class="cv-bar-rose" style="color:rgba(192,71,74,.7)">&#10084;</span>
+    </div>
+
+    <div class="cv-eyebrow">&#10022; &nbsp; A Love Story &nbsp; &#10022;</div>
+
+    <div class="cv-names-row">
+      <div class="cv-name cv-name-a">Aashu</div>
+      <div class="cv-ring-wrap">
+        <div class="cv-ring-spin"></div>
+        <div class="cv-ring-inner-spin"></div>
+        <span class="cv-ring-heart">&#9829;</span>
+      </div>
+      <div class="cv-name cv-name-b">Shambhavi</div>
+    </div>
+
+    <div class="cv-full-names">
+      Aashu Singh Chauhan &nbsp;<span class="cv-fn-amp">&amp;</span>&nbsp; Shambhavi Singh Chauhan
+    </div>
+
+    <div class="cv-love-quote cv-lq1">
+      "In a world full of faces, I found yours —<br/>
+      and everything else became background noise."
+    </div>
+
+    <div class="cv-date-badge">
+      <span class="cv-date-rose" style="color:#c9a84c">&#10022;</span>
+      <div class="cv-date-text">
+        <div class="cv-date-label">Our Story Began</div>
+        <div class="cv-date-val">25th August, 2025</div>
+      </div>
+      <span class="cv-date-rose" style="color:#c9a84c">&#10022;</span>
+    </div>
+
+    <div class="cv-timer-block">
+      <div class="cv-timer-title">Together for</div>
+      <div class="cv-orbits">
+        <div class="cv-orbit-unit">
+          <svg viewBox="0 0 80 80" class="cv-ring-svg">
+            <circle cx="40" cy="40" r="33" class="cv-track"/>
+            <circle cx="40" cy="40" r="33" class="cv-prog cv-prog-days" id="ringDays" stroke="url(#gDays)"/>
+          </svg>
+          <div class="cv-orbit-center">
+            <span class="cv-onum" id="tDays">000</span>
+            <span class="cv-olbl">Days</span>
+          </div>
+        </div>
+        <div class="cv-orbit-unit">
+          <svg viewBox="0 0 80 80" class="cv-ring-svg">
+            <circle cx="40" cy="40" r="33" class="cv-track"/>
+            <circle cx="40" cy="40" r="33" class="cv-prog cv-prog-hrs" id="ringHrs" stroke="url(#gHrs)"/>
+          </svg>
+          <div class="cv-orbit-center">
+            <span class="cv-onum" id="tHours">00</span>
+            <span class="cv-olbl">Hours</span>
+          </div>
+        </div>
+        <div class="cv-orbit-unit">
+          <svg viewBox="0 0 80 80" class="cv-ring-svg">
+            <circle cx="40" cy="40" r="33" class="cv-track"/>
+            <circle cx="40" cy="40" r="33" class="cv-prog cv-prog-mins" id="ringMins" stroke="url(#gMins)"/>
+          </svg>
+          <div class="cv-orbit-center">
+            <span class="cv-onum" id="tMins">00</span>
+            <span class="cv-olbl">Mins</span>
+          </div>
+        </div>
+        <div class="cv-orbit-unit">
+          <svg viewBox="0 0 80 80" class="cv-ring-svg">
+            <circle cx="40" cy="40" r="33" class="cv-track"/>
+            <circle cx="40" cy="40" r="33" class="cv-prog cv-prog-secs" id="ringSecs" stroke="url(#gSecs)"/>
+          </svg>
+          <div class="cv-orbit-center">
+            <span class="cv-onum cv-secs-num" id="tSecs">00</span>
+            <span class="cv-olbl">Secs</span>
+          </div>
+        </div>
+      </div>
+      <div class="cv-timer-sub">counting every second, only for you</div>
+    </div>
+
+    <div class="cv-items-row">
+      <span class="cv-bounce" style="--d:0s; color:rgba(192,71,74,.8)">&#10084;</span>
+      <span class="cv-bounce" style="--d:.14s; color:rgba(201,168,76,.7)">&#10022;</span>
+      <span class="cv-bounce" style="--d:.28s; color:rgba(192,71,74,.75)">&#9829;</span>
+      <span class="cv-bounce" style="--d:.42s; color:rgba(201,168,76,.65)">&#9733;</span>
+      <span class="cv-bounce" style="--d:.56s; color:rgba(192,71,74,.8)">&#10084;</span>
+      <span class="cv-bounce" style="--d:.70s; color:rgba(201,168,76,.7)">&#10022;</span>
+      <span class="cv-bounce" style="--d:.84s; color:rgba(192,71,74,.75)">&#9829;</span>
+    </div>
+
+    <div class="cv-love-quote cv-lq2">
+      "You are the poem I never knew how to write,<br/>
+      and the song I've been humming my whole life."
+    </div>
+
+    <button class="cv-open-btn" onclick="nextCard()">
+      <span style="color:rgba(255,200,200,.9)">&#10084;</span>
+      <span class="cv-btn-label">Open Our Story</span>
+      <span style="color:rgba(255,200,200,.9)">&#10084;</span>
+    </button>
+
+    <div class="cv-footer">
+      Made with every heartbeat — only &amp; only for you, Shambhavi &#9829;
+    </div>
+
+    <div class="cv-bot-bar">
+      <span style="color:rgba(192,71,74,.5)">&#10084;</span>
+      <span class="cv-bot-stars">&#10022; &#10022; &#10022;</span>
+      <span style="color:rgba(192,71,74,.5)">&#10084;</span>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     CARD 2 — TABLE OF CONTENTS
+     ══════════════════════════════════════ -->
+<div class="card card-toc" id="card-1">
+  <div class="toc-night-bg"></div>
+  <canvas id="tocStarsCanvas" class="toc-stars-canvas"></canvas>
+  <div class="toc-moon"></div>
+  <div id="tocJugnuLayer" class="toc-jugnu-layer"></div>
+
+  <div class="toc-wrapper">
+    <div class="toc-eyebrow">— Our Journey —</div>
+    <h2 class="toc-title">30 Moments<br/><span>I'll Never Forget</span></h2>
+    <p class="toc-sub">Tap any chapter to begin there</p>
+    <div class="toc-grid" id="tocGrid"></div>
+    <div class="toc-heart-row">&#9829; &#9829; &#9829;</div>
+    <button class="toc-begin-btn" onclick="goTo(2)">Begin Reading &#8594;</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGES 1–30  (cards 3–32)
+     ══════════════════════════════════════ -->
+
+<!-- PAGE 1 -->
+<div class="card card-story s1" id="card-2">
+  <div class="deco-layer s1-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">01 / 30</span>
+    <div class="chap-label">Chapter I</div>
+    <div class="big-icon" style="color:#ff6080;text-shadow:0 0 30px rgba(255,96,128,.7)">&#9829; &#10022;</div>
+    <h3 class="story-title">The Day It All Began</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">25 August didn't look special at first… just another quiet day passing by. But fate was already writing a new chapter for us somewhere behind the scenes.</p>
+    <p class="story-para">That was the day I found you, Shambhavi — like a soft light appearing in the middle of an ordinary moment. Something felt different. Something felt right.</p>
+    <p class="story-para">One small step, one simple action, and suddenly the universe felt closer. I didn't know then that this date would turn into a memory I would carry forever.</p>
+    <p class="story-para">Since that day, every moment has slowly turned into a beautiful story… our story.</p>
+    <div class="story-blockquote">"Some dates are not just days — they become the beginning of magic."</div>
+    <div class="page-heartbeat" style="color:#ff6080">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card card-story s2" id="card-3">
+  <div class="deco-layer s2-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">02 / 30</span>
+    <div class="chap-label">Chapter II</div>
+    <div class="big-icon" style="color:#ffa0c8;text-shadow:0 0 25px rgba(255,160,200,.7)">&#10003; &#10022;</div>
+    <h3 class="story-title">She Accepted The Request</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">25 August… the moment you accepted my Snapchat request, something inside me quietly celebrated. It was just a notification on the screen, yet it felt like the universe giving me a small green signal.</p>
+    <p class="story-para">And then came 28 August, when you accepted me on Instagram — another simple tap that meant more than words could explain.</p>
+    <p class="story-para">You probably saw it as something normal, but for me it felt like a new door opening slowly. Two small accept buttons… and suddenly my days started carrying a different kind of excitement. That was the moment I realized that sometimes the most beautiful stories begin with the simplest "yes."</p>
+    <div class="story-blockquote">"Not every beginning is loud — some arrive softly and change everything."</div>
+    <div class="page-heartbeat" style="color:#ff80b0">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="card card-story s3" id="card-4">
+  <div class="deco-layer s3-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">03 / 30</span>
+    <div class="chap-label">Chapter III</div>
+    <div class="big-icon" style="color:#ffc860;text-shadow:0 0 25px rgba(255,180,60,.8)">&#9733; &#10022;</div>
+    <h3 class="story-title">First Hello</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Our first hello on Snapchat was simple… almost quiet, like the start of a song you don't fully hear yet. We didn't talk much that day, just a few words passing between two strangers slowly becoming familiar.</p>
+    <p class="story-para">But even in those small conversations, something felt warm and real. Three days later, on 28 August, you gave me your Instagram — and somehow that felt like a door opening to a deeper world.</p>
+    <p class="story-para">And then came our real first hello there… a little message that carried more meaning than it seemed. It wasn't loud or dramatic, just two souls learning how to stay.</p>
+    <p class="story-para">Who knew that a simple greeting would slowly turn into late-night talks and endless memories? Sometimes forever doesn't start with grand moments — it begins with a quiet "hello."</p>
+    <div class="story-blockquote">"Some words are small, but they change the entire story."</div>
+    <div class="page-heartbeat" style="color:#ffa030">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="card card-story s4" id="card-5">
+  <div class="deco-layer s4-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">04 / 30</span>
+    <div class="chap-label">Chapter IV</div>
+    <div class="big-icon" style="color:#8b0040;font-size:clamp(28px,6vw,50px)">&#9733; &#9829;</div>
+    <h3 class="story-title">Getting to Know You</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Slowly, conversation by conversation, I started discovering you — your thoughts, your feelings, the little things that make you laugh, the things that make you go quiet.</p>
+    <p class="story-para">Every reply felt like a new layer being revealed. You weren't just a name on a screen anymore — you were becoming someone real, someone I actually wanted to know completely.</p>
+    <p class="story-para">Getting to know you wasn't just exciting… it felt necessary. Like I had been missing something I didn't even know existed, and now it was slowly filling the space.</p>
+    <div class="story-blockquote">"Every word you shared felt like a gift I didn't know I needed."</div>
+    <div class="page-heartbeat" style="color:#c01860">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="card card-story s5" id="card-6">
+  <div class="deco-layer s5-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">05 / 30</span>
+    <div class="chap-label">Chapter V</div>
+    <div class="big-icon" style="color:#e0a8ff;text-shadow:0 0 30px rgba(200,120,255,.8)">&#9790; &#10022;</div>
+    <h3 class="story-title">Late Night Talks</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">The nights became our favourite time. When the world went quiet, you and I just kept talking — about everything and nothing, about dreams and fears, about the little things that mattered most.</p>
+    <p class="story-para">Those late-night conversations had a magic of their own. There was something about the darkness that made everything feel safer, more honest, more real.</p>
+    <p class="story-para">We laughed at silly things, got deep about serious ones, and somewhere in between all of that — we became us. Those nights were when I truly started falling for you.</p>
+    <div class="story-blockquote">"The best stories are written after midnight, between two people who refuse to say goodnight."</div>
+    <div class="page-heartbeat" style="color:#c880ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="card card-story s6" id="card-7">
+  <div class="deco-layer s6-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">06 / 30</span>
+    <div class="chap-label">Chapter VI</div>
+    <div class="big-icon" style="color:#60e8f8;text-shadow:0 0 25px rgba(96,232,248,.7)">&#9928; &#9729;</div>
+    <h3 class="story-title">The First Fight</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Our first argument was unexpected. Words flew a little too fast, feelings got a little too tangled. For a moment, the warmth between us turned cold, and the silence felt heavy.</p>
+    <p class="story-para">But what matters isn't that we fought — what matters is what came after. We came back. We apologized, explained, and chose each other over the pride.</p>
+    <p class="story-para">That first fight taught me that this wasn't just something light and casual. We both cared enough to feel hurt — and that care is what made us real.</p>
+    <div class="story-blockquote">"Real love isn't the absence of storms — it's finding your way back to the calm together."</div>
+    <div class="page-heartbeat" style="color:#40e0ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="card card-story s7" id="card-8">
+  <div class="deco-layer s7-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">07 / 30</span>
+    <div class="chap-label">Chapter VII</div>
+    <div class="big-icon" style="color:#ff8098;text-shadow:0 0 30px rgba(255,80,120,.7)">&#9829; &#9733;</div>
+    <h3 class="story-title">I Knew You Were Different</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">There was a moment — I can't pinpoint exactly when — where I just knew. You weren't like anyone I had spoken to before. The way you thought, the way you felt, the way you cared.</p>
+    <p class="story-para">You were different in the quietest, most beautiful way. Not trying to impress, not performing — just being. And that genuineness hit me somewhere deep.</p>
+    <p class="story-para">I knew then that whatever this was, I didn't want it to end. You were someone worth staying for — someone worth fighting sleepy nights and long distances for.</p>
+    <div class="story-blockquote">"She walked into my world and rearranged everything — softly, quietly, completely."</div>
+    <div class="page-heartbeat" style="color:#ff6080">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 8 -->
+<div class="card card-story s8" id="card-9">
+  <div class="deco-layer s8-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">08 / 30</span>
+    <div class="chap-label">Chapter VIII</div>
+    <div class="big-icon" style="color:#ff5060;text-shadow:0 0 30px rgba(255,60,80,1);animation:breathe 1.8s ease-in-out infinite">&#9829; &#9829;</div>
+    <h3 class="story-title">The Butterflies</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">You gave me butterflies. Not the nervous kind — the kind that make you feel alive. Every time your name appeared on my screen, something in my chest would quietly lift.</p>
+    <p class="story-para">Reading your messages felt like opening a small gift. Waiting for your reply felt like the most patient kind of hope. And when you typed something sweet, my whole mood would shift in the best way.</p>
+    <p class="story-para">Those butterflies never fully went away. Even now, you still make my heart do that little thing — that soft skip that only you can cause.</p>
+    <div class="story-blockquote">"You didn't just give me butterflies — you gave me reasons to smile I didn't know I was missing."</div>
+    <div class="page-heartbeat" style="color:#ff3050">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 9 -->
+<div class="card card-story s9" id="card-10">
+  <div class="deco-layer s9-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">09 / 30</span>
+    <div class="chap-label">Chapter IX</div>
+    <div class="big-icon" style="color:#8b0038;font-size:clamp(28px,6vw,50px)">&#9742; &#10022;</div>
+    <h3 class="story-title">Our First Call</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Hearing your voice for the first time was something else entirely. Texts had been wonderful, but your voice — soft, real, unmistakably yours — made everything feel suddenly more real.</p>
+    <p class="story-para">I remember how my heart beat a little faster when the call connected. How I smiled at things you said and hoped you couldn't hear how happy I was.</p>
+    <p class="story-para">That first call stretched longer than either of us planned. And when it finally ended, the room felt a little quieter — like your absence had sound.</p>
+    <div class="story-blockquote">"Your voice was the one thing I didn't know I had been waiting to hear all along."</div>
+    <div class="page-heartbeat" style="color:#b01050">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 10 -->
+<div class="card card-story s10" id="card-11">
+  <div class="deco-layer s10-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">10 / 30</span>
+    <div class="chap-label">Chapter X</div>
+    <div class="big-icon" style="color:#70e898;text-shadow:0 0 25px rgba(80,220,120,.7)">&#9827; &#10022;</div>
+    <h3 class="story-title">Learning Your World</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">The more you shared, the more I wanted to know. Your family, your routines, the little things that shaped you into the person you are — I collected every detail like something precious.</p>
+    <p class="story-para">I learned what makes you laugh until your eyes water, what makes you go unexpectedly quiet, the things you pretend not to care about but actually do.</p>
+    <p class="story-para">Learning your world didn't feel like research — it felt like coming home to a place I'd never been, but somehow always belonged.</p>
+    <div class="story-blockquote">"Knowing someone deeply is the most tender form of love there is."</div>
+    <div class="page-heartbeat" style="color:#60e880">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 11 -->
+<div class="card card-story s11" id="card-12">
+  <div class="deco-layer s11-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">11 / 30</span>
+    <div class="chap-label">Chapter XI</div>
+    <div class="big-icon" style="color:#d0a0ff;text-shadow:0 0 25px rgba(200,140,255,.7)">&#9729; &#9733;</div>
+    <h3 class="story-title">When You Understood Me</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">There are things I've always struggled to say — parts of me I've kept guarded, not because I wanted to hide, but because not everyone gets it. Not everyone cares enough to really listen.</p>
+    <p class="story-para">But you listened differently. You didn't rush past my words. You asked the right questions, waited through the pauses, and somehow understood things I hadn't even finished explaining.</p>
+    <p class="story-para">Being understood by you felt rare. Like finding water in a desert I didn't know I was walking through. You made me feel less alone in my own head.</p>
+    <div class="story-blockquote">"Being truly understood by someone is one of the deepest forms of love."</div>
+    <div class="page-heartbeat" style="color:#c080ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 12 -->
+<div class="card card-story s12" id="card-13">
+  <div class="deco-layer s12-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">12 / 30</span>
+    <div class="chap-label">Chapter XII</div>
+    <div class="big-icon" style="color:#ff8020;text-shadow:0 0 30px rgba(255,100,20,.8)">&#9733; &#9828;</div>
+    <h3 class="story-title">Our Second Fight</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">The second fight was harder than the first. We both said things that stung. The silence that followed felt different — heavier, more uncertain.</p>
+    <p class="story-para">But again, we chose each other. We talked it through, even when it was uncomfortable. We learned that staying through the difficult parts is what love actually looks like.</p>
+    <p class="story-para">Every argument we've survived has made us more honest with each other. Our fights weren't breaks — they were breakthroughs.</p>
+    <div class="story-blockquote">"The couples who fight are not the ones who don't love — they're the ones who care too much to let go."</div>
+    <div class="page-heartbeat" style="color:#ff6010">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 13 -->
+<div class="card card-story s13" id="card-14">
+  <div class="deco-layer s13-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">13 / 30</span>
+    <div class="chap-label">Chapter XIII</div>
+    <div class="big-icon" style="color:#90b8f0;text-shadow:0 0 20px rgba(120,160,240,.6)">&#9830; &#9729;</div>
+    <h3 class="story-title">Missing You</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Distance has been our constant companion and our constant enemy. There are moments when the space between us feels like a physical weight — pressing, persistent, impossible to ignore.</p>
+    <p class="story-para">Missing you sounds like silence in conversations I wish I could have out loud. It looks like wanting to show you something and knowing you're hundreds of miles away.</p>
+    <p class="story-para">But I've learned that missing someone this much means loving them that much. And that thought — somehow — makes the distance bearable.</p>
+    <div class="story-blockquote">"I miss you in the quietest moments and the loudest ones too. I miss you all the time."</div>
+    <div class="page-heartbeat" style="color:#80a8ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 14 -->
+<div class="card card-story s14" id="card-15">
+  <div class="deco-layer s14-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">14 / 30</span>
+    <div class="chap-label">Chapter XIV</div>
+    <div class="big-icon" style="color:#ffd0a0;font-size:clamp(28px,6vw,52px)">&#9829; &#10022;</div>
+    <h3 class="story-title">The Commitment</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Somewhere between all the conversations and the laughter and the fights and the making up — something shifted from casual to certain. We weren't just talking anymore. We were choosing each other.</p>
+    <p class="story-para">That commitment didn't arrive with grand declarations. It came quietly — in staying when things got hard, in apologizing when pride wanted to win, in still showing up even on the tired days.</p>
+    <p class="story-para">I chose you. Not just once, but every single day since. And I will keep choosing you.</p>
+    <div class="story-blockquote">"Commitment is not one moment. It is a thousand small choices made in love."</div>
+    <div class="page-heartbeat" style="color:#ff9050">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 15 -->
+<div class="card card-story s15" id="card-16">
+  <div class="deco-layer s15-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">15 / 30</span>
+    <div class="chap-label">Chapter XV</div>
+    <div class="big-icon" style="color:#50e8c8;text-shadow:0 0 25px rgba(60,220,190,.7)">&#8734; &#10022;</div>
+    <h3 class="story-title">Learning to be Patient</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Patience is something I've had to practice with you — and with myself. There were moments when I wanted things to move faster, when the waiting felt impossible.</p>
+    <p class="story-para">But you taught me that real things take time. That trust is built slowly. That love doesn't rush — it grows. And growing things need patience the way plants need rain.</p>
+    <p class="story-para">Learning to wait for you, to wait with you, has made me a quieter and more certain kind of person. You've taught me that the best things — like us — are worth every second of the wait.</p>
+    <div class="story-blockquote">"Patience in love is not weakness — it is the deepest form of trust."</div>
+    <div class="page-heartbeat" style="color:#40e0c0">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 16 -->
+<div class="card card-story s16" id="card-17">
+  <div class="deco-layer s16-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">16 / 30</span>
+    <div class="chap-label">Chapter XVI</div>
+    <div class="big-icon" style="color:#ffd070;text-shadow:0 0 25px rgba(255,200,80,.7)">&#9728; &#9733;</div>
+    <h3 class="story-title">Good Morning Sunshine</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">You changed my mornings. Before you, waking up was just a routine — eyes open, another day beginning with nothing particular waiting. After you, mornings had a reason.</p>
+    <p class="story-para">Your good morning messages, your calls that pulled me out of sleep, your voice when the day was still fresh — you made 6am feel like something worth showing up for.</p>
+    <p class="story-para">And now, on the mornings I don't hear from you, something feels quietly missing — like coffee without warmth. You are my sunrise, Shambhavi. Every single day.</p>
+    <div class="story-blockquote">"My favourite notification will always be your name appearing in the morning."</div>
+    <div class="page-heartbeat" style="color:#ff8820">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 17 -->
+<div class="card card-story s17" id="card-18">
+  <div class="deco-layer s17-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">17 / 30</span>
+    <div class="chap-label">Chapter XVII</div>
+    <div class="big-icon" style="color:#88a8ff;text-shadow:0 0 25px rgba(120,160,255,.7)">&#9834; &#9835;</div>
+    <h3 class="story-title">Our Playlist</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Music became a language we shared. Certain songs started belonging to us — not because of grand moments, but because of the quiet ones. Songs we played during late nights, songs we sang even if we couldn't hold a note.</p>
+    <p class="story-para">Now whenever those songs play, they carry your name in them. They carry the memory of a specific message, a specific laugh, a specific moment when everything felt perfect.</p>
+    <p class="story-para">Our playlist isn't just songs. It's a timeline of us — every track a different chapter of something that keeps growing.</p>
+    <div class="story-blockquote">"Some songs will always belong to us — no matter who else hears them."</div>
+    <div class="page-heartbeat" style="color:#7090ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 18 -->
+<div class="card card-story s18" id="card-19">
+  <div class="deco-layer s18-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">18 / 30</span>
+    <div class="chap-label">Chapter XVIII</div>
+    <div class="big-icon" style="color:#8b4200;font-size:clamp(28px,6vw,50px)">&#9829; &#9733;</div>
+    <h3 class="story-title">The Nicknames</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Somewhere between laughs and late-night talks, we started giving each other names that only we truly understand.</p>
+    <p class="story-para">From the beginning you were my Rasmalai — sweet and impossible to resist — and slowly you became my wifey, my lady, my laado, my kuchupuchi, my babeeeyyyy. Every nickname carried a different feeling, a different version of my love for you.</p>
+    <p class="story-para">And the way you started calling me beta, bachha, meri jaan, mera babu — it felt like we were building a tiny world where only our voices existed. These weren't just cute names… they were little pieces of comfort we wrapped around each other every day.</p>
+    <div class="story-blockquote">"Between all those nicknames, we didn't just find words — we found a place that feels like home."</div>
+    <div class="page-heartbeat" style="color:#c03030">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 19 -->
+<div class="card card-story s19" id="card-20">
+  <div class="deco-layer s19-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">19 / 30</span>
+    <div class="chap-label">Chapter XIX</div>
+    <div class="big-icon" style="color:#e8b0ff;text-shadow:0 0 30px rgba(230,140,255,.7)">&#9727; &#10022;</div>
+    <h3 class="story-title">Dreams of Meeting</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Before we ever met, we lived that day a hundred times through our conversations. We planned everything — where we would go, what we would eat, how we would spend every little moment together.</p>
+    <p class="story-para">Sometimes we even imagined the tiny fights — you getting mad at me, your cute anger, and me just standing there smiling because even that felt beautiful with you.</p>
+    <p class="story-para">I used to think about watching you talk, listening to your voice without a screen between us, simply feeling your presence beside me. It wasn't just about going out or taking pictures — it was about finally turning our dreams into something real.</p>
+    <div class="story-blockquote">"Before our hands ever met, our hearts had already walked those streets together a thousand times."</div>
+    <div class="page-heartbeat" style="color:#d880ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 20 -->
+<div class="card card-story s20" id="card-21">
+  <div class="deco-layer s20-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">20 / 30</span>
+    <div class="chap-label">Chapter XX</div>
+    <div class="big-icon" style="color:#60e8a0;text-shadow:0 0 25px rgba(80,220,150,.7)">&#9730; &#9733;</div>
+    <h3 class="story-title">You Made Me Better</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Somewhere along this journey, you didn't just love me… you started shaping me into a better version of myself. You notice every little thing — what I like, what I don't, what makes me smile, what hurts me — and you care in ways words can't fully explain.</p>
+    <p class="story-para">You always try to do whatever is in your power just to keep me happy, never leaving things unfinished when we argue, never choosing silence over us.</p>
+    <p class="story-para">Even when I carry that rough vibe, you don't pull away — you guide me gently, appreciate me, and motivate me to be stronger but softer at the same time. Loving you didn't just change my days — it changed who I am.</p>
+    <div class="story-blockquote">"You didn't just stand beside me — you held my broken pieces so gently that I finally learned how to become whole with you."</div>
+    <div class="page-heartbeat" style="color:#50e898">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 21 -->
+<div class="card card-story s21" id="card-22">
+  <div class="deco-layer s21-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">21 / 30</span>
+    <div class="chap-label">Chapter XXI</div>
+    <div class="big-icon" style="color:#ffc830;text-shadow:0 0 30px rgba(255,190,40,.8)">&#9733; &#10022;</div>
+    <h3 class="story-title">Your Strength</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">There is a strength in you that not everyone gets to see — but I notice it in every little thing you do. You handle your home, take care of everyone, and still find space in your heart to look after me without ever complaining.</p>
+    <p class="story-para">Being the eldest daughter, you stand strong emotionally and mentally — always knowing what's right, what's wrong, and how to handle things with maturity. Every morning you wake me up with your call, already carrying responsibilities most people don't even understand.</p>
+    <p class="story-para">As the eldest son, I understand the weight you carry behind that soft smile. Your strength isn't loud — it's steady. And that quiet resilience is one of the reasons I admire you more every day.</p>
+    <div class="story-blockquote">"You don't just hold your world together — you inspire me to stand stronger in mine too."</div>
+    <div class="page-heartbeat" style="color:#ffa820">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 22 -->
+<div class="card card-story s22" id="card-23">
+  <div class="deco-layer s22-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">22 / 30</span>
+    <div class="chap-label">Chapter XXII</div>
+    <div class="big-icon" style="color:#ff70b0;text-shadow:0 0 30px rgba(255,80,160,.8)">&#9829; &#9829;</div>
+    <h3 class="story-title">When We Almost Lost Our Way</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">22 December… the night when everything felt like it could slip away from our hands. We fought the whole night, words turning heavy, emotions louder than understanding, until we blocked each other everywhere.</p>
+    <p class="story-para">For a moment it felt like the end was standing right in front of us. But by evening, I put my ego aside and came back to you… because staying away hurt more than any argument ever could.</p>
+    <p class="story-para">And slowly, with patience and love, we found our way back to each other again. That day taught me something real — true love isn't about never fighting, it's about choosing the same person even after the storm.</p>
+    <div class="story-blockquote">"Love isn't proven when everything is perfect — it's proven when two hearts still choose each other after almost letting go."</div>
+    <div class="page-heartbeat" style="color:#ff50a0">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 23 -->
+<div class="card card-story s23" id="card-24">
+  <div class="deco-layer s23-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">23 / 30</span>
+    <div class="chap-label">Chapter XXIII</div>
+    <div class="big-icon" style="color:#b898ff;text-shadow:0 0 30px rgba(160,100,255,.8)">&#9829; &#9730;</div>
+    <h3 class="story-title">Our First Sexchat</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">That night felt different from all the others… a little nervous, a little shy, and full of unspoken feelings. We didn't rush anything — we just stayed there, slowly opening a softer, more vulnerable side of ourselves.</p>
+    <p class="story-para">Between small pauses and quiet smiles, I felt how deeply we trusted each other — to be real without fear. It wasn't just about words… it was about comfort, about knowing we could be close even from miles away.</p>
+    <p class="story-para">There was innocence in our hesitation and magic in the way we slowly let our walls fall. We talked about our desires, our dreams, the way we wanted to hold each other someday — not just physically, but emotionally too.</p>
+    <div class="story-blockquote">"Some moments aren't loud or wild… they're just two hearts learning how to be close without hiding."</div>
+    <div class="page-heartbeat" style="color:#a078ff">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 24 -->
+<div class="card card-story s24" id="card-25">
+  <div class="deco-layer s24-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">24 / 30</span>
+    <div class="chap-label">Chapter XXIV</div>
+    <div class="big-icon" style="color:#98bcf0;text-shadow:0 0 25px rgba(140,180,240,.7)">&#9729; &#9830;</div>
+    <h3 class="story-title">When You're Sad</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Whenever you feel sad, something inside me goes quiet too. Your silence doesn't just stay with you… it reaches me, making my own mood heavy without even realizing it.</p>
+    <p class="story-para">I don't like seeing you hurt; all I want in those moments is to find some way to bring your smile back. Even when you get angry at me or yell, it still feels warm… because at least I know you're strong and full of life.</p>
+    <p class="story-para">But when you're truly upset, the world feels a little off — like the colors fade around us. All I wish is for you to stay happy, to never feel alone. Your happiness becomes my peace, and seeing you smile is enough to make everything feel right again.</p>
+    <div class="story-blockquote">"Your tears don't just fall from your eyes… they quietly echo inside my heart too."</div>
+    <div class="page-heartbeat" style="color:#80a8f0">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 25 -->
+<div class="card card-story s25" id="card-26">
+  <div class="deco-layer s25-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">25 / 30</span>
+    <div class="chap-label">Chapter XXV</div>
+    <div class="big-icon" style="color:#ff7060;text-shadow:0 0 30px rgba(255,80,60,.8)">&#9829; &#9733;</div>
+    <h3 class="story-title">Pure Hearted Beauty</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">You don't even realize how effortlessly beautiful you are. Sometimes just a small bindi and kajal are enough to make you look like a living piece of art — soft, graceful, and impossible to ignore.</p>
+    <p class="story-para">When you wear traditional, it feels like time pauses for a second… like my heart forgets how to beat because you look unreal. And in western outfits, you carry yourself with bold confidence — like a queen who doesn't need anyone's approval.</p>
+    <p class="story-para">Your natural beauty is what makes you stand out most — you don't hide behind heavy makeup, yet you shine brighter than anyone around you. To me, you're not just beautiful… you're a timeless feeling, a soft strength, and a kind of charm that words can never fully capture.</p>
+    <div class="story-blockquote">"She doesn't try to be perfect — she simply exists, and that alone makes the world feel more beautiful."</div>
+    <div class="page-heartbeat" style="color:#ff5040">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 26 -->
+<div class="card card-story s26" id="card-27">
+  <div class="deco-layer s26-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">26 / 30</span>
+    <div class="chap-label">Chapter XXVI</div>
+    <div class="big-icon" style="color:#50d8f8;text-shadow:0 0 25px rgba(60,210,248,.7)">&#9830; &#9730;</div>
+    <h3 class="story-title">Soft Teasing Energy</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">There are things I've wanted to say and wasn't sure how. Feelings I've carried quietly, waiting for the right moment. Some stayed unsaid — not because they didn't matter — but because they mattered too much.</p>
+    <p class="story-para">The way you tease me — softly, with that warmth hidden underneath — is one of my favourite things about you. You know exactly when to push and exactly when to pull back. That balance is rare.</p>
+    <p class="story-para">This book is my attempt to say them all at once. Everything I've held back, everything I've felt in quiet moments — here, between these pages, for you.</p>
+    <div class="story-blockquote">"Sometimes love is too big for words and too important for silence."</div>
+    <div class="page-heartbeat" style="color:#30c8f0">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 27 -->
+<div class="card card-story s27" id="card-28">
+  <div class="deco-layer s27-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">27 / 30</span>
+    <div class="chap-label">Chapter XXVII</div>
+    <div class="big-icon" style="color:#ffb0cc;text-shadow:0 0 30px rgba(255,140,180,.7)">&#9829; &#9830;</div>
+    <h3 class="story-title">You Are Home</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Whenever I talk to you, I feel a kind of peace I can’t find anywhere else.
+With you, I feel safe… loved… understood in ways I never even knew I needed.
+You love me exactly the way I once only imagined in dreams gently, honestly, without conditions..</p>
+    <p class="story-para">Whenever I’m stressed or carrying anger inside me, you calm me down without even trying too hard.
+In front of you, I don’t feel like I have to be strong all the time I become soft, almost like a child again.
+It feels like I’m reliving a part of my childhood, but this time with warmth and security..</p>
+    <p class="story-para">Just one voice note, one call, one video call from you changes my entire mood.
+You understand me without me explaining everything, and you always cheer for me in my wins and even in my losses..</p>
+    <p class="story-para">You feel proud of me in moments when I doubt myself, and that means more than you will ever know..</p>
+    <p class="story-para">With you, love doesn’t feel dramatic… it feels steady.
+It feels like home..</p>
+    <div class="story-blockquote">"You are not just the person I love you are the place where my heart feels at peace."</div>
+    <div class="page-heartbeat" style="color:#ff90b8">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 28 -->
+<div class="card card-story s28" id="card-29">
+  <div class="deco-layer s28-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">28 / 30</span>
+    <div class="chap-label">Chapter XXVIII</div>
+    <div class="big-icon" style="color:#ffb888;text-shadow:0 0 30px rgba(255,160,100,.8)">&#9829; &#9733;</div>
+    <h3 class="story-title">Behind Her Smile</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">Sometimes behind your beautiful smile, I see the quiet fears you don’t always say out loud.
+You wonder if this relationship will truly last, if we will really reach marriage, if one day I might walk away.
+You overthink whether someone else could ever take your place in my heart..</p>
+    <p class="story-para">But listen to me carefully I am not going anywhere.
+I don’t love you for a season or a moment; I love you with intention, with permanence.
+I choose you today, and I will keep choosing you tomorrow and every day after that..</p>
+    <p class="story-para">You are not someone I can replace, not someone I can casually lose.
+You are rare, precious a blessing I could never earn twice in this lifetime.
+Losing you isn’t even an option in my world..</p>
+    <p class="story-para">So whenever those fears whisper to you, remember this:
+My love for you isn’t temporary… it’s the kind that stays..</p>
+    <div class="story-blockquote">"Even when your fears try to steal your peace, remember my heart chose you once, and it keeps choosing you every single day..........."</div>
+    <div class="page-heartbeat" style="color:#ff9050">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 29 -->
+<div class="card card-story s29" id="card-30">
+  <div class="deco-layer s29-deco"></div>
+  <div class="story-inner">
+    <span class="pg-num">29 / 30</span>
+    <div class="chap-label">Chapter XXIX</div>
+    <div class="big-icon" style="color:#a8bce8;text-shadow:0 0 25px rgba(160,188,240,.7)">&#9790; &#9733;</div>
+    <h3 class="story-title">Written In Stars</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">After all the chaos, the love, the sadness, the intimacy, the future plans… today it all becomes real.
+Today we are finally meeting not through a screen, not through calls or messages but face to face.
+All those late-night talks, video calls, snaps, and endless chats… they’re no longer just memories. They’re leading us to this moment..</p>
+    <p class="story-para">I’m so excited to see you standing in front of me, not as a dream, but as my reality.
+I don’t know if I’ll be able to hold your hand confidently or if I’ll just stand there shy and speechless.
+There’s a strange mix of fear and love inside me scared because you matter so much, but peaceful because it’s you..</p>
+    <p class="story-para">I keep imagining your voice without network breaks, your smile without pixels, your eyes looking directly into mine..</p>
+    <p class="story-para">I don’t think I’ll be able to control my heart when I see you fully, completely, right there.
+Today feels precious already… like one of those days I will remember for the rest of my life..</p>
+    <p class="story-para">Whatever happens when I see you it will be the realest moment of my life. And I will remember every single second of it.</p>
+    <div class="story-blockquote">"Some moments aren’t planned by us they are written in the stars long before we ever meet'"</div>
+    <div class="page-heartbeat" style="color:#90a8e8">&#9829;</div>
+  </div>
+</div>
+
+<!-- PAGE 30 — GRAND FINALE -->
+<div class="card card-story s30" id="card-31">
+  <div class="deco-layer s30-deco"></div>
+  <div class="s30-gold-particles" id="s30gold"></div>
+  <div class="story-inner">
+    <span class="pg-num">30 / 30</span>
+    <div class="chap-label" style="font-size:12px;letter-spacing:5px">Chapter XXX — Forever</div>
+    <div class="big-icon" style="color:#ff8898;font-size:clamp(36px,8vw,65px);text-shadow:0 0 30px rgba(255,136,152,.5)">&#10084; &#8734;</div>
+    <h3 class="story-title finale-title">25 August The Day We Found Each Other</h3>
+    <div class="fancy-divider">— &#10022; —</div>
+    <p class="story-para">On 25 August, what looked like an ordinary day quietly turned into the beginning of us. 
+    A simple request, a simple hello, and suddenly two strangers started becoming familiar.
+    From Snapchat to Instagram on 28 August, small conversations slowly turned into longer ones.
+    Reels were shared, questions were asked, childhood stories were exchanged, and somewhere between laughs and late-night talks, something deeper started growing..</p>
+    <p class="story-para">September brought butterflies, first calls, soft jealousy, and the comfort of hearing each other’s voices. We learned each other’s worlds dreams, fears, responsibilities, and hidden scars.
+      There were fights too, moments of ego and silence, but even in distance we kept finding our way back. Every storm only proved that walking away was harder than staying.</p>
+    <p class="story-para">October gave us something real commitment. Not rushed, not temporary, but intentional. Promises were made with open eyes. From good morning calls to shared playlists, from nicknames to imagined dates, we built a little universe of our own.
+      You became my peace, my comfort, my home and I became someone better because you believed in me..</p>
+    <p class="story-para">There were tears, insecurities, doubts about the future, and nights where we almost lost our way. But love kept choosing us.
+      December tested us, yet it also strengthened us. We learned that real love is not about perfection it’s about coming back after the chaos, holding each other tighter than before.</p>
+    <p class="story-para">And now, from 25 August to 7 March, we stand here — not as strangers, not as something temporary but as two hearts that have grown through everything. Every call, every fight, every laugh, every promise led us here.
+      What started as a small click became a story written in patience, passion, and something that feels beautifully real.</p>
+    <p class="story-para finale-love-line">I love you, Shambhavi. &#9829;</p>
+   
+    <div class="story-blockquote">"From a single click on 25 August to 7 March in your arms, 
+    we didn’t just pass time we turned moments into a love story the stars had already decided."</div>
+    <div class="page-heartbeat finale-beat">&#9829;</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CARD 33 — The Letter End Is the New Beginning
+     ══════════════════════════════════════ -->
+<div class="card card-letter" id="card-32">
+  <div class="letter-petals" id="letterPetals"></div>
+  <div class="letter-rose-bg"></div>
+
+  <div class="letter-paper">
+    <div class="letter-wax">&#128140;</div>
+    <div class="letter-ribbon-text">The Letter</div>
+    <div class="letter-greeting"> The End Is the New Beginning,</div>
+
+    <div class="letter-content">
+      <p>From 25 August to this very moment, we turned a simple hello into a universe only we understand.
+Through late-night talks, shared playlists, first calls, small fights, and storms that almost broke us we still chose each other..</p>
+      <p>You healed parts of me I never showed the world, and in your arms I found a home I didn’t know I was searching for..</p>
+      <p>Your smile, your strength, your fears behind that brave face I carry all of it like something sacred..</p>
+      <p>We have felt chaos, distance, jealousy, intimacy, laughter, and love and every emotion only tied our souls closer..</p>
+      <p>Today, standing at this new beginning, I promise you this story will never become just a memory to me..</p>
+      <p>I love you <em>every quiet version of you, every loud version, every version that's still becoming.</em> I'm so proud to be yours.</p>
+      <p>No matter how hard the days get, no matter how loud the world becomes, I will not let go of your hand.</p>
+      <p>I will stay in your happiness, in your sadness, in your anger, in your dreams choosing you again and again..</p>
+      <p>What we built is not temporary; it is written in patience, loyalty, and a love that refuses to fade..</p>
+      <p>This letter may end here, but my forever with you is only just beginning..</p>
+    </div>
+
+    <div class="letter-flowers">&#10084; &#10022; &#9829; &#10022; &#10084;</div>
+
+    <div class="letter-sign-off">
+      Forever yours,<br/>
+      <span class="letter-name">Aashu &#9829;</span>
+    </div>
+
+    <div class="letter-heart-row">&#9829; &#9829; &#9829; &#9829; &#9829;</div>
+  </div>
+
+  <div class="letter-corner lc-tl">&#10022;</div>
+  <div class="letter-corner lc-tr">&#10022;</div>
+  <div class="letter-corner lc-bl">&#10022;</div>
+  <div class="letter-corner lc-br">&#10022;</div>
+
+
+  <div class="letter-actions">
+    <button class="ltr-btn ltr-relive" onclick="goTo(0)">&#10022; Relive Our Story</button>
+    <button class="ltr-btn ltr-chapters" onclick="goTo(1)">All Chapters</button>
+  </div>
+
+  <div class="page-heartbeat" style="color:#c0474a;margin-top:16px">&#9829;</div>
+</div>
+
+<!-- NAV ARROWS -->
+<button class="nav-btn nav-prev" id="navPrev" onclick="prevCard()">&#8592;</button>
+<button class="nav-btn nav-next" id="navNext" onclick="nextCard()">&#8594;</button>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
