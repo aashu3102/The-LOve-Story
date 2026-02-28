@@ -9,12 +9,13 @@ const TOTAL_CARDS  = 33;
 const START_DATE   = new Date('2025-08-25T00:00:00');
 let   currentCard  = 0;
 let   isAnimating  = false;
-let   musicPlaying = false;
-let   audioCtx     = null;
-let   gainNode     = null;
-let   musicNodes   = [];
-let   musicInterval= null;
 let   swipeHidden  = false;
+
+// Background audio — references the <audio id="backgroundAudio"> in HTML
+let bgAudio = null;
+let audioStarted = false;
+
+
 
 /* ── TABLE OF CONTENTS DATA ─────────────────────────────────── */
 const TOC_DATA = [
@@ -418,6 +419,8 @@ function showCard(index, dir = 'next') {
   });
 
   currentCard = index;
+  // adjust audio playback when card changes
+  handleAudioForCard(index);
 }
 
 function nextCard() {
@@ -756,6 +759,20 @@ function updateMusicUI() {
     btn.classList.toggle('playing', musicPlaying);
   }
   if (note) note.classList.toggle('show', musicPlaying);
+}
+
+function handleAudioForCard(index) {
+  // Song sirf tab play hoga jab 3rd card (index 2) aayega
+  if (!bgAudio) bgAudio = document.getElementById('backgroundAudio');
+  if (!bgAudio) return;
+
+  if (index === 2) {
+    // 3rd card par aa gaye — song play karo
+    bgAudio.loop = true; // khatam hone par shuru se play hoga
+    bgAudio.play().catch(() => {});
+    audioStarted = true;
+  }
+  // Note: song band nahi hoga dusre cards par — continue karta rahega
 }
 
 /* ══════════════════════════════════════════════════════════════
