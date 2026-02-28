@@ -1680,6 +1680,11 @@ body:hover #cursor{
   align-items: flex-end;
   gap: 8px;
 }
+.audio-upload-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 .music-note-display {
   display: flex;
   align-items: center;
