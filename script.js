@@ -399,7 +399,10 @@ function showCard(index, dir = 'next') {
     if (c.classList.contains('active')) {
       c.classList.remove('active');
       c.classList.add(dir === 'next' ? 'exit-left' : 'exit-right');
-      setTimeout(() => c.classList.remove('exit-left', 'exit-right'), 700);
+      setTimeout(() => {
+        c.classList.remove('exit-left', 'exit-right');
+        c.style.willChange = 'auto'; // release GPU layer after exit
+      }, 600);
     }
   });
 
@@ -407,6 +410,8 @@ function showCard(index, dir = 'next') {
   const target = document.getElementById(`card-${index}`);
   if (!target) return;
 
+  // Promote to GPU layer only during animation
+  target.style.willChange = 'opacity, transform';
   target.style.transform = dir === 'next' ? 'translateX(60px) scale(.97)' : 'translateX(-60px) scale(.97)';
   target.style.opacity = '0';
 
@@ -415,6 +420,8 @@ function showCard(index, dir = 'next') {
       target.style.transform = '';
       target.style.opacity = '';
       target.classList.add('active');
+      // Release GPU layer after transition completes
+      setTimeout(() => { target.style.willChange = 'auto'; }, 600);
     });
   });
 
@@ -761,18 +768,17 @@ function updateMusicUI() {
   if (note) note.classList.toggle('show', musicPlaying);
 }
 
+/* ══════════════════════════════════════════════════════════════
+   AUDIO — background song auto-play on 3rd card
+   ══════════════════════════════════════════════════════════════ */
 function handleAudioForCard(index) {
-  // Song sirf tab play hoga jab 3rd card (index 2) aayega
   if (!bgAudio) bgAudio = document.getElementById('backgroundAudio');
   if (!bgAudio) return;
-
   if (index === 2) {
-    // 3rd card par aa gaye — song play karo
-    bgAudio.loop = true; // khatam hone par shuru se play hoga
+    bgAudio.loop = true;
     bgAudio.play().catch(() => {});
     audioStarted = true;
   }
-  // Note: song band nahi hoga dusre cards par — continue karta rahega
 }
 
 /* ══════════════════════════════════════════════════════════════
