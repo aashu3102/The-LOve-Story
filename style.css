@@ -79,7 +79,6 @@ body:hover #cursor{
   animation: ambFloat var(--dur,12s) ease-in-out infinite;
   animation-delay: var(--del,0s);
   opacity: .35;
-  will-change: transform, opacity;
 }
 @keyframes ambFloat {
   0%,100% { transform: translateY(0) scale(1); opacity: .35; }
@@ -98,11 +97,12 @@ body:hover #cursor{
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
+  transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.4,0,.2,1);
   transform: translateX(60px) scale(.97);
   overflow: hidden;
   z-index: 10;
-  will-change: opacity, transform;
+  /* NO will-change here — causes GPU layer explosion on mobile */
+  -webkit-overflow-scrolling: touch;
 }
 .card.active {
   opacity: 1;
@@ -400,7 +400,6 @@ body:hover #cursor{
   animation: floatUp var(--fd,8s) ease-in-out infinite;
   animation-delay: var(--fdl,0s);
   filter: blur(.3px);
-  will-change: transform, opacity;
 }
 .fl1  { left: 5%;  bottom: 20%; --fd:9s;  --fdl:0s; }
 .fl2  { left: 15%; bottom: 10%; --fd:11s; --fdl:1s; }
@@ -428,12 +427,13 @@ body:hover #cursor{
   max-height: 90dvh;
   overflow-y: auto;
   overflow-x: hidden;
-  background: rgba(20,8,40,.72);
-  backdrop-filter: blur(24px) saturate(1.6);
-  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-overflow-scrolling: touch;
+  background: rgba(20,8,40,.88);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
   border: 1px solid rgba(201,168,76,.25);
   border-radius: 24px;
-  padding: clamp(18px,4vw,36px) clamp(16px,4vw,32px);
+  padding: clamp(16px,4vw,36px) clamp(14px,4vw,32px);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.04),
     0 30px 80px rgba(0,0,0,.7),
@@ -882,7 +882,8 @@ body:hover #cursor{
   width: min(680px, 96vw);
   max-height: 96dvh;
   overflow-y: auto;
-  padding: clamp(20px,4vh,40px) clamp(16px,4vw,32px);
+  -webkit-overflow-scrolling: touch;
+  padding: clamp(16px,4vh,40px) clamp(14px,4vw,32px);
   scrollbar-width: thin;
   scrollbar-color: rgba(192,71,74,.3) transparent;
   display: flex;
@@ -1024,11 +1025,12 @@ body:hover #cursor{
   width: min(580px, 92vw);
   max-height: 90dvh;
   overflow-y: auto;
-  background: rgba(10,4,25,.6);
-  backdrop-filter: blur(20px) saturate(1.5);
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-overflow-scrolling: touch;
+  background: rgba(10,4,25,.88);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
   border-radius: 20px;
-  padding: clamp(20px,4vw,36px) clamp(18px,4vw,32px);
+  padding: clamp(16px,4vw,36px) clamp(14px,4vw,32px);
   border: 1px solid rgba(255,255,255,.07);
   box-shadow: 0 25px 70px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06);
   scrollbar-width: thin;
@@ -1431,10 +1433,11 @@ body:hover #cursor{
   width: min(580px, 92vw);
   max-height: 90dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background:
     linear-gradient(to bottom, rgba(255,250,245,.96) 0%, rgba(255,240,235,.95) 100%);
   border-radius: 4px 4px 8px 8px;
-  padding: clamp(24px,5vw,48px) clamp(20px,5vw,44px);
+  padding: clamp(20px,5vw,48px) clamp(16px,5vw,44px);
   box-shadow:
     0 0 0 1px rgba(192,71,74,.15),
     0 30px 80px rgba(0,0,0,.7),
@@ -1804,18 +1807,52 @@ body:hover #cursor{
   .cv-moon { width: 80px; height: 80px; top: 20px; right: 20px; }
   .cv-moon-halo { width: 100px; height: 100px; top: 20px; right: 20px; }
   .cv-moon-atmo { width: 120px; height: 120px; top: 10px; right: 10px; }
+  /* Reduce blur intensity on small screens to prevent flicker */
+  .cv-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20,8,40,.93);
+  }
+  .story-inner {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(10,4,25,.93);
+  }
+  /* Reduce story para font slightly for small screens */
+  .story-para { font-size: 14px; line-height: 1.75; }
+  .story-title { font-size: 20px; }
+  .big-icon { font-size: 30px; }
 }
 
 @media (max-height: 650px) {
   .cv-card { padding: 12px 14px; }
-  .story-inner { padding: 14px 16px; }
-  .letter-paper { padding: 16px 18px; }
+  .story-inner { padding: 12px 14px; }
+  .letter-paper { padding: 14px 16px; }
   .cv-timer-block { margin-bottom: 10px; }
   .cv-photo-frame-wrap { display: none; }
 }
 
 @media (min-width: 900px) {
   .toc-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── Mobile touch performance fixes ───────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover animations on touch devices — they can get stuck */
+  .toc-item:hover { transform: none; box-shadow: none; }
+  .nav-btn:hover { transform: translateY(-50%); }
+  .ltr-btn:hover { transform: none; box-shadow: none; }
+  /* Disable burst-heart on mobile to reduce repaints */
+  .burst-heart { display: none; }
+  /* Reduce particle count visual weight */
+  .amb-p { opacity: .2; }
+  /* Disable cloud blur filters on mobile */
+  .cv-cloud, .cv-cloud-over {
+    filter: none;
+    opacity: .3;
+  }
+  .cv-mtn-mist { filter: none; }
+  .cv-mist { filter: none; }
 }
 
 /* ── SELECTION ────────────────────────────────────────────────── */
